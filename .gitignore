@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+.jest-report.json
+*.tsbuildinfo
+.env
+.DS_Store
+.jest-report-oldest.json
+.jest-report-cluster.json
+.jest-report-bullmq5.json
+.jest-report-bullmq6-oldest.json

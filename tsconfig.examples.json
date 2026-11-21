@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "noEmit": true,
+    "types": ["node"],
+    "paths": {
+      "@hoshinotatsuya/bullmq-kit": ["./src/index.ts"],
+      "@hoshinotatsuya/bullmq-kit/bullmq": ["./src/bullmq/index.ts"],
+      "@hoshinotatsuya/bullmq-kit/orphan-cleanup": ["./src/orphan-cleanup/index.ts"],
+      "@hoshinotatsuya/bullmq-kit/inspect": ["./src/inspect/index.ts"]
+    }
+  },
+  "include": ["examples"]
+}

@@ -1,0 +1,42 @@
+{
+  "src/bullmq/acquire-or-delay.ts": {
+    "count": 3,
+    "reason": "delayResolver — расчёт задержки n-й отсрочки, который вызывает acquireOrDelay (в index экспортирован как часть того же API); nonNegativeInteger — проверка их общих опций DelayOnLimitOptions"
+  },
+  "src/bullmq/delay-on-limit-options.type.ts": {
+    "count": 2,
+    "reason": "DelayOnLimitOptions и DelayableJob — два параметра одной функции acquireOrDelay (настройки и структурная часть задачи); другого потребителя у них нет"
+  },
+  "src/group-concurrency/acquire-result.type.ts": {
+    "count": 4,
+    "reason": "AcquireResult, AcquireManyResult (расширяет его), GroupLimit и GroupHolder — формы ответов и входа одного класса GroupConcurrency; AcquireManyResult без базового типа не читается"
+  },
+  "src/group-concurrency/group-concurrency.ts": {
+    "count": 3,
+    "reason": "OUTCOME_BY_REPLY (перевод кодов ответа скриптов в исходы) и Slot (потолок и срок слота) — внутренние части GroupConcurrency, вне класса не используются"
+  },
+  "src/group-concurrency/scripts.constant.ts": {
+    "count": 3,
+    "reason": "PRELUDE — общий пролог Lua, вклеиваемый в каждый скрипт GROUP_CONCURRENCY_SCRIPTS; SCRIPT_REPLY — коды, которые эти скрипты возвращают: тексты скриптов и их коды обязаны меняться вместе"
+  },
+  "src/orphan-cleanup/constants/cleanup-scripts.constant.ts": {
+    "count": 4,
+    "reason": "DRY_RUN_ARG, UNTIMESTAMPED_ARG и LIST_SCAN_ARG — значения аргументов скрипта checkAndDelete из CLEANUP_SCRIPTS; текст скрипта и значения его аргументов обязаны меняться вместе"
+  },
+  "src/orphan-cleanup/constants/orphan-verdict.constant.ts": {
+    "count": 2,
+    "reason": "ORPHAN_VERDICT (ответ проверки одного хэша) и CLEANUP_STOP_REASON (почему прогон остановился) — два закрытых словаря исходов одного прогона уборки, оба попадают в CleanupReport"
+  },
+  "src/orphan-cleanup/orphaned-jobs-cleanup.ts": {
+    "count": 10,
+    "reason": "курсор SCAN, ответ лока, состояние прогона RunState, уступка цикла событий, экранирование glob, служебные суффиксы и проверки опций — внутренние шаги OrphanedJobsCleanup, вне класса не вызываются"
+  },
+  "src/orphan-cleanup/types/cleanup-redis.type.ts": {
+    "count": 3,
+    "reason": "CleanupRedis расширяет CleanupScanner, CleanupPipeline — тип его метода pipeline: три части одного структурного порта клиента Redis для уборки"
+  },
+  "src/orphan-cleanup/types/cleanup-report.type.ts": {
+    "count": 3,
+    "reason": "UnsupportedQueue и CleanupKept — типы полей CleanupReport (неубранные очереди и оставленные хэши); вне отчёта прогона они не встречаются"
+  }
+}

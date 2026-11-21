@@ -1,0 +1,20 @@
+# Библиотека — самостоятельный пакет (свой репозиторий). pnpm 11+ не запускает
+# install-скрипты зависимостей без явного решения.
+packages:
+  - '.'
+engineStrict: true
+minimumReleaseAgeExclude:
+  # Инструменты разработки того же автора ставятся сразу после их публикации.
+  - '@hoshinotatsuya/arch-gates'
+  - '@hoshinotatsuya/jest-groups'
+  - '@hoshinotatsuya/node-guard'
+  # Последняя BullMQ (devDependency, набор `test:latest`) моложе суток на момент
+  # подъёма; исключение — ровно на эту версию, не на пакет.
+  - bullmq@6.7.7
+allowBuilds:
+  # Нативный наблюдатель файлов jest-haste-map (jest 30.5+, режим --watch). Готовые бинарники — в
+  # необязательных пакетах @parcel/watcher-<платформа>; install-скрипт собирает из исходников только
+  # при npm_config_build_from_source=true, то есть без него ничего не теряется.
+  '@parcel/watcher': false
+  # Необязательный нативный ускоритель msgpackr (его тянет bullmq); JS-fallback работает.
+  msgpackr-extract: false
